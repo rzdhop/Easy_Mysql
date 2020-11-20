@@ -11,9 +11,12 @@ $conn = new Mysql("CoursMSG");
     </head>
     <body>
         <h1>voici les databases:</h1>
-        <?=$conn->ShowDB()?>
-        <h1>voici les tables:</h1>
-        <?=$conn->ShowTables()?>
+        <br>
+        <?php
+        $DBs = $conn->ShowDB(TRUE);
+        for($x=0; $x < count($DBs); $x++){
+            echo '<a href="?DB='.$DBs[$x].'">'.$DBs[$x]."</a><br>";
+        }?>
         <br>
         <a href="?Form">Click Here to from</a>
     </body>

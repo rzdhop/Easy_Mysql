@@ -54,10 +54,8 @@ class Mysql extends conn_Mysql{
     function ShowDB(bool $returnlist = FALSE)
     {
         $rep = $this->sendQuery("SHOW DATABASES;");
-        $tmp = $rep[0];
         $this->proc_sqliAws = array();
         for($i = 0; $rep[$i] != NULL; $i++){
-            array_push($this->proc_sqliAws, $tmp);
             $tmp = $rep[$i]['Database'];
             if(!$returnlist){echo $tmp."<br>";}
             else {array_push($this->proc_sqliAws, $tmp);}

@@ -1,9 +1,10 @@
 <?php
 require_once "src/Proc.php";
 $conn = new Mysql("CoursMSG");
+
 if (isset($_POST["Msg"])) {
     if(isset($_POST["isOver18"])){
-        $conn->InjectIntable("Messages", array(htmlentities($_POST['Msg']), htmlspecialchars($_POST['isOver18'])));
+        $conn->InjectIntable("Messages", array(htmlspecialchars($_POST['Msg']), htmlspecialchars($_POST['isOver18'])));
     }else {
         $conn->InjectIntable("Messages", array(htmlentities($_POST['Msg']), 0));
     }
@@ -36,6 +37,7 @@ if (isset($_POST["Msg"])) {
                     $colNum = count($columns);
                     $items = $conn->selectfromTable("Messages", ["*"], TRUE);
                     $itemsNum = count($items);
+                    $itemNumNum = count($items[0]);
                     echo "<tr>";
                     for ($i =0 ; $i < $colNum; $i++)
                     {
@@ -45,14 +47,15 @@ if (isset($_POST["Msg"])) {
                     for ($i =0 ; $i < $itemsNum; $i++)
                     {   
                         echo "<tr>";
-                            echo "<td>".$items[$i][0]."<td>";
-                            echo "<td>".$items[$i][1]."<td>";
+                            for($x = 0; $x < $itemNumNum; $x++){
+                                echo "<td>".$items[$i][$x]."<td>";
+                            }
                         echo "</tr>";
                     }
                     
                 ?>
             </table>
-
+            <a href="/">Comeback to main</a>
 
     </body>
 </html>
