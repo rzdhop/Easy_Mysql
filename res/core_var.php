@@ -1,5 +1,5 @@
 <?php
 //CONNECTION
 const SERVERNAME = 'localhost';
-const USERNAME = 'root';
+const USERNAME = 'Rida';
 const PASSWORD = 'toor';
