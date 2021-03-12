@@ -2,4 +2,4 @@
 //CONNECTION
 const SERVERNAME = 'localhost';
 const USERNAME = 'Rida';
-const PASSWORD = 'toor';
+const PASSWORD = 'guess_it';
